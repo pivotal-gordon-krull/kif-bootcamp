@@ -1,14 +1,5 @@
-//
-//  AppDelegate.m
-//  KIFBootcamp
-//
-//  Created by DX200 on 12/21/15.
-//  Copyright © 2015 PIvotal Labs. All rights reserved.
-//
-
 #import "AppDelegate.h"
 #import "BootcampTableViewController.h"
-#import <Parse/Parse.h>
 #import "Constants.h"
 
 @interface AppDelegate ()
@@ -21,12 +12,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // Initialize Parse.
-    [Parse setApplicationId:@"8PlHrZk3tdNLbZvDBCN8bc2r4LIUF4AV1q30HkB6"
-                  clientKey:@"2bh2Iai3LXplEKdUsSCH5IfeNN3XzBZ74g8t11Se"];
-    
-    
+      
     BootcampTableViewController *btvc = [[BootcampTableViewController alloc] init];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:btvc];

@@ -1,13 +1,4 @@
-//
-//  BootcampTableViewController.m
-//  KIFBootcamp
-//
-//  Created by DX200 on 12/21/15.
-//  Copyright © 2015 PIvotal Labs. All rights reserved.
-//
-
 #import "BootcampTableViewController.h"
-#import <Parse/Parse.h>
 #import "Constants.h"
 #import "Pivot.h"
 #import "DetailsViewController.h"
@@ -36,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]  forCellReuseIdentifier:@"cellReuse"];
-    [self loadPivotsFromParse];
+    [self loadPivotsFromDatabase];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -67,42 +58,6 @@
     cell.textLabel.text = pivot.fullName;
     return cell;
 }
-
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -139,15 +94,23 @@
 
 #pragma mark - Parse Data
 
-- (Pivot *)pivotFromParseObject:(PFObject *)parseObject {   
+- (Pivot *)pivotFromParseObject:(PFObject *)parseObject {
+    
+    
+    
+    
+    
     Pivot *pivot = [[Pivot alloc] initWithName:parseObject[kPivotNameKey] projects:parseObject[kPivotProjectsKey] jobTitle:parseObject[kPivotJobKey]];
     return pivot;
 }
 
 #pragma mark - Private
 
-- (void)loadPivotsFromParse {
+- (void)loadPivotsFromDatabase {
     __weak typeof(self) weakSelf = self;
+    
+    
+    
     PFQuery *query = [PFQuery queryWithClassName:kParseClassPivot];
     [query findObjectsInBackgroundWithBlock:^(NSArray *pivots, NSError *error) {
         NSMutableArray *fetchedPivots = [NSMutableArray array];

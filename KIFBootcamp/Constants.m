@@ -1,5 +1,3 @@
-
-
 #import "Constants.h"
 
 @implementation Constants
