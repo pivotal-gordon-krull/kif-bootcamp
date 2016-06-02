@@ -1,8 +1,8 @@
- platform :ios, '8.0'
+platform :ios, '8.0'
 
 target 'KIFBootcamp' do
-
-pod 'Parse'
-
+	pod 'AFNetworking'
+	pod 'Mantle'
+	pod 'KSDeferred'
 end
 
