@@ -62,7 +62,7 @@ In order to complete this task you will need to create a new test class, and wri
 ##### Objective:
 1. Add an accessibility label to the table view that contains the ETT Pivots
 2. Add an accessibility label to the text entry field in the details view
-3. Use your newly created accessibility labels to write a new test, one that loops through the the rows and taps on 
+3. Use your newly created accessibility labels to write a new test, one that loops through the the rows and taps on each and then enters some text into the detail view's text field.
 
 ##### Description:
 
